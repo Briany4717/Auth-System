@@ -1,6 +1,6 @@
 {
   "name": "auth-system",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Authentication and identity microservice with JWT, 2FA, RBAC, and dynamic CORS management",
   "main": "dist/server.js",
   "scripts": {

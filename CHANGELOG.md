@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2025-10-31
+
+### Fixed
+
+- **Production Safety**: Removed `npx prisma migrate dev` from Dockerfile production stage
+  - This command is interactive and intended for development only
+  - Could cause database resets or prompts in production containers
+  - Production deployments now rely solely on `prisma migrate deploy` via docker-compose
+  - Ensures non-interactive, safe database migrations in production environments
+
+### Added
+
+- Initial Prisma migration files for deployment tracking
+- Migration lock file for consistency across environments
+
+### Changed
+
+- Updated Dockerfile to use `node:22.21.1-alpine3.21` for better security and stability
+
 ## [1.0.0] - 2025-10-31
 
 ### 🎉 Initial Release

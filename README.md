@@ -2,7 +2,7 @@
 
 # Identity & Authentication Microservice
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)	](https://github.com/Briany4717/auth-system)[![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)	](LICENSE)[![Node](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen.svg)	](https://nodejs.org)[![TypeScript](https://img.shields.io/badge/typescript-5.3.3-blue.svg)](https://www.typescriptlang.org)
+[![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)	](https://github.com/Briany4717/auth-system)[![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)	](LICENSE)[![Node](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen.svg)	](https://nodejs.org)[![TypeScript](https://img.shields.io/badge/typescript-5.3.3-blue.svg)](https://www.typescriptlang.org)
 [![Docker](https://img.shields.io/badge/docker-ready-blue.svg)	](https://www.docker.com)[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)		](https://github.com/Briany4717/auth-system/pulls)[![Maintenance](https://img.shields.io/badge/maintained-yes-green.svg)](https://github.com/Briany4717/auth-system/graphs/commit-activity)
 
 **An authentication and identity microservice built with modern security (AppSec) best practices.**

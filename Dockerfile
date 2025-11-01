@@ -47,7 +47,6 @@ USER nodejs
 # Install production dependencies and generate Prisma client as nodejs user
 RUN npm ci --only=production && \
     npx prisma generate
-RUN npx prisma migrate dev --name init || echo "Migrations already applied"
 
 EXPOSE 3000
 
