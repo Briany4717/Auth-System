@@ -1,0 +1,19 @@
+app = "auth-system-nrideq"
+primary_region = "dfw"
+
+[deploy]
+release_command = "npx prisma migrate deploy"
+
+[http_service]
+auto_start_machines = true
+auto_stop_machines = "off"
+force_https = true
+internal_port = 3_000
+min_machines_running = 1
+processes = ["app"]
+
+[[vm]]
+cpu_kind = "shared"
+cpus = 1
+memory = "1gb"
+memory_mb = 1_024
