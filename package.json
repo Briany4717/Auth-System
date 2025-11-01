@@ -1,0 +1,88 @@
+{
+  "name": "auth-system",
+  "version": "1.0.0",
+  "description": "Authentication and identity microservice with JWT, 2FA, RBAC, and dynamic CORS management",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:push": "prisma db push",
+    "prisma:studio": "prisma studio",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "docker:build": "docker-compose up --build -d"
+  },
+  "keywords": [
+    "authentication",
+    "authorization",
+    "identity",
+    "jwt",
+    "2fa",
+    "totp",
+    "mfa",
+    "rbac",
+    "security",
+    "microservice",
+    "api",
+    "rest",
+    "nodejs",
+    "typescript",
+    "express",
+    "prisma",
+    "postgresql",
+    "docker",
+    "cors"
+  ],
+  "author": {
+    "name": "Brian Gómez",
+    "email": "brianyan4717@gmail.com",
+    "url": "https://briany.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Briany4717/auth-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Briany4717/auth-system/issues"
+  },
+  "homepage": "https://github.com/Briany4717/auth-system#readme",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.18.0",
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^7.0.10",
+    "otplib": "^12.0.1",
+    "qrcode": "^1.5.3",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cookie-parser": "^1.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/node": "^20.10.5",
+    "@types/nodemailer": "^6.4.14",
+    "@types/qrcode": "^1.5.5",
+    "prisma": "^6.18.0",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  }
+}

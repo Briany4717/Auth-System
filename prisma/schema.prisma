@@ -1,0 +1,96 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+  MODERATOR
+}
+
+model User {
+  id                  String    @id @default(uuid())
+  email               String    @unique
+  password            String
+  firstName           String?
+  lastName            String?
+  roles               Role[]    @default([USER])
+  isEmailVerified     Boolean   @default(false)
+  emailVerificationToken String? @unique
+  emailVerificationExpiry DateTime?
+  
+  // 2FA/MFA
+  isMfaEnabled        Boolean   @default(false)
+  mfaSecret           String?
+  mfaBackupCodes      String[]  @default([])
+  
+  // Password Reset
+  passwordResetToken  String?   @unique
+  passwordResetExpiry DateTime?
+  
+  // Account Status
+  isActive            Boolean   @default(true)
+  lastLoginAt         DateTime?
+  
+  // Timestamps
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+  
+  // Relations
+  refreshTokens       RefreshToken[]
+  
+  @@index([email])
+  @@map("users")
+}
+
+model RefreshToken {
+  id              String    @id @default(uuid())
+  hashedToken     String    @unique
+  userId          String
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt       DateTime
+  createdAt       DateTime  @default(now())
+  isRevoked       Boolean   @default(false)
+  revokedAt       DateTime?
+  replacedByToken String?
+  deviceInfo      String?
+  ipAddress       String?
+  
+  @@index([userId])
+  @@index([hashedToken])
+  @@map("refresh_tokens")
+}
+
+model AuditLog {
+  id          String    @id @default(uuid())
+  userId      String?
+  action      String
+  resource    String?
+  details     Json?
+  ipAddress   String?
+  userAgent   String?
+  success     Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  
+  @@index([userId])
+  @@index([action])
+  @@index([createdAt])
+  @@map("audit_logs")
+}
+
+model AllowedOrigin {
+  id          String    @id @default(uuid())
+  url         String    @unique
+  description String?
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  @@index([isActive])
+  @@map("allowed_origins")
+}
